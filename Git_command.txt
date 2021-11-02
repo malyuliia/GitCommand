@@ -1,0 +1,146 @@
+INITIALIZING IN REPOSITORY
+1.mkdir Moon - создаем директорию 
+cd Moon 
+git init - инициализируем пустой гит репозиторий
+ls - посмотреть список файлов
+ls -a - покажет сабдиректорию
+open .git - открыть нашу субдиректорию
+rm -rf .git - удаление субдиректории
+
+STAGING FILES
+echo hello > file1.txt 
+echo hello > file2.txt
+git status
+git add file1.txt file2.txt / git add . / git add *.txt
+git status
+echo world >> file1.txt
+git status
+git add file1.txt
+
+
+COMMITTING CHANGES
+git commit -m "Initial commit."
+
+type in the commit_editmsg file:
+Initial commit 
+
+This is our first commit. 
+
+
+SKIPPING THE STAGING AREA
+
+echo test >> file1.txt
+git commit -am "Fix the bug."
+
+REMOVING FILES
+rm file2.txt 
+git status
+git ls-files
+git add d file2.txt
+git ls-files
+git status
+git commit -m "Remove unused code."
+git rm file2.txt *.txt
+
+
+RENAMING OR MOVING FILES
+ls 
+mv file1.txt main.js - rename
+git status
+git add file1.txt 
+git add main.js 
+git mv main.js file1.js - изменения применяютя сразу, добавлять не нужно
+git commit - m "Refactor code."
+
+
+IGNORING FILES
+mkdir logs 
+echo hello > logs/dev.log 
+создаем файл .gitignore
+echo logs/ > .gitignore
+code .gitignore
+git add .gitignore 
+git commitgit -m "Add gitignore"
+
+mkdir bin
+echo hello > bin/app.bin 
+git status
+git add .
+git commit - m "Add bin." 
+добавляем вручную в файл .gitignore нашу директорию /bin 
+git status 
+git add .
+git commit - m "Include bin/in gitignore"
+
+echo helloworld > bin/app.bin 
+git status
+git ls-files - показывает файлы в staging area 
+git rm --cached -r bin/ удаляем этот файл только со staging area 
+git ls-files 
+git status
+git commit -m "Remove the bin directory that was accidentally committed."'
+
+SHORT STATUS
+git stechoatus -s 
+echo sky >> file1.js
+echo sky > file2.js 
+git status
+git status -s
+git add file1.js 
+git status -s
+echo ocean >> file1.js 
+git status -s
+git add file1.js 
+git status -s
+M - modified 
+A -added 
+
+VIEWVING STAGED AND UNSTAGED CHANGES 
+git diff --staged - посмотреть что у нас в staging area 
+git diff 
+git status -s
+
+VISUAL DIFF TOOLS 
+git config --global diff.tool vscode 
+git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE
+git config -global -e 
+git difftool
+git difftool --staged 
+
+VIEWING THE HISTORY 
+git log 
+git log --oneline - short summary of commits 
+git log --reverse 
+
+VIEVING THE COMMIT 
+git show ID
+git show HEAD - view the last commit 
+git show HEAD~1 - to view the previous commit and steps back 
+git show HEAD~1: bin/app.bin 
+                 .gitignore  - ti view the last stirag version
+
+git ls-tree HEAD~1 - to view all files in a tree 
+
+UNSTAGING FILES 
+git reset --staged file1.js file2.js
+git status -s
+
+DISCARDING LOCAL CHANGES 
+git clean -fd - undo local changes 
+
+RESTORING A FILE TO AN EARLIER VERSION 
+git rm file1.js 
+git status -s
+git commit -m "Delete file1.js"
+git log --oneline 
+git restore - source = HEAD~1 file1.js 
+git status -s
+
+
+
+
+
+
+
+
+
