@@ -134,7 +134,7 @@ git status -s
 git commit -m "Delete file1.js"
 git log --oneline 
 git restore - source = HEAD~1 file1.js 
-git status -s
+git status -s - view status
 
 
 
